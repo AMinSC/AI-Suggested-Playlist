@@ -16,26 +16,46 @@
             <button type="submit">전송</button>
         </form>
     </div>
+    <!-- <script type="text/javascript" src="apikey.js"> -->
     <script>
+        const YOUTUBE_API = config.apikey;
         const $form = document.querySelector("form");
         const $input = document.querySelector("input");
         const $chatList = document.querySelector("ul");
         let test = ''
+        const recDict = []
 
 
         // openAI API
-        let url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
+        let openAIUrl = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
         // 사용자의 질문
         let question;
 
         // 질문과 답변 저장
         let data = [
-        {
-            role: "system",
-            content: "assistant는 친절한 답변가이다.",
-        },
+            {
+                "role": "system", 
+                "content": "assistant는 노래 전문가이다."
+            }, 
         ];
+
+        //YOUTUBE DATA API v3. Search
+        //help for params : https://developers.google.com/youtube/v3/docs/search/list#--
+
+        let optionParams={
+            q: '',
+            part: "snippet",
+            key: YOUTUBE_API,
+            type: "video",
+            maxResults: 1,
+            regionCode: "KR",
+            videoDuration: "short"
+        };
+
+
+        //한글을 검색어로 전달하기 위해선 url encoding 필요!
+        optionParams.q = encodeURI(optionParams.q);
 
         // 화면에 뿌려줄 데이터, 질문들
         let questionData = [];
@@ -44,6 +64,32 @@
         $input.addEventListener("input", (e) => {
             question = e.target.value;
         });
+
+
+        // youtube api 를 활용하여, ChatGPT가 추천해준 노래 리스트를 search 한 뒤, 영상 제목과 영상 id 가져오는 함수
+        const getVideoId = (recList) => {
+            for (const i of recList) {
+                optionParams['q'] = i
+
+                let url="https://www.googleapis.com/youtube/v3/search?";
+
+                for(let option in optionParams){
+                    url += option + "=" + optionParams[option] + "&";
+                }
+
+                //url의마지막에 붙어있는 & 정리
+                url = url.substr(0, url.length - 1);
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.items[0].snippet.title + " : " + data.items[0].id.videoId)
+                        recDict.push(data.items[0].snippet.title + " : " + data.items[0].id.videoId)
+                    })
+                    .catch(error => console.log(error));
+            }
+        }
+
 
         // 사용자의 질문을 객체를 만들어서 push
         const sendQuestion = (question) => {
@@ -83,7 +129,7 @@
 
         // api 요청보내는 함수
         const apiPost = async () => {
-        const result = await fetch(url, {
+        const result = await fetch(openAIUrl, {
             method: "POST",
             headers: {
             "Content-Type": "application/json",
@@ -94,15 +140,16 @@
             .then((res) => res.json())
             .then((res) => {
             test += res.choices[0].message.content
-            // console.log(test.match(/\d\. \D+/gm));
-            console.log(test.split('\n').slice(2, 12))
             test = test.split('\n').slice(2, 12)
+            getVideoId(test)  // youtube API 활용하여 title과 videoId 가져오는 함수
+            console.log(test)
             printAnswer(res.choices[0].message.content);
             })
             .catch((err) => {
             console.log(err);
             });
         };
+        
 
         // submit
         $form.addEventListener("submit", (e) => {
