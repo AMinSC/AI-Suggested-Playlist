@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <title>chat</title>
 </head>
 <body>
@@ -15,15 +13,17 @@
             <input type="text" autofocus />
             <button type="submit">전송</button>
         </form>
+        <ol id="vedioList"></ol>
     </div>
     <!-- <script type="text/javascript" src="apikey.js"> -->
     <script>
-        const YOUTUBE_API = "config.apikey";
+        // const YOUTUBE_API = "config.apikey";
         const $form = document.querySelector("form");
         const $input = document.querySelector("input");
         const $chatList = document.querySelector("ul");
-        let test = ''
-        const recDict = []
+        const $vedioList = document.querySelector("#vedioList");
+        let videoIdCounter = 0;
+        let gptRecList = ''
 
 
         // openAI API
@@ -52,7 +52,7 @@
             order: "viewCount",
             regionCode: "KR",
             videoDuration: "medium",
-            // videoEmbeddable: "true",  // ture일 경우 퍼갈 수 있는 영상만 검색
+            videoEmbeddable: "true",  // ture일 경우 퍼갈 수 있는 영상만 검색
         };
 
 
@@ -72,9 +72,7 @@
         const getVideoId = (recList) => {
             for (const i of recList) {
                 optionParams['q'] = i
-
                 let url="https://www.googleapis.com/youtube/v3/search?";
-
                 for(let option in optionParams){
                     url += option + "=" + optionParams[option] + "&";
                 }
@@ -85,8 +83,8 @@
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data.items[0].snippet.title + " : " + data.items[0].id.videoId)
-                        recDict.push(data.items[0].snippet.title + " : " + data.items[0].id.videoId)
+                        console.log(`2 : ${data.items[0].id.videoId}`)
+                        printVedio(data.items[0].id.videoId)
                     })
                     .catch(error => console.log(error));
             }
@@ -129,6 +127,47 @@
         $chatList.appendChild(li);
         };
 
+        // 화면에 답변 그려주는 함수
+        function printVedio (t) {
+            let li = document.createElement("li");
+            li.id = "player" + videoIdCounter++;
+            $vedioList.appendChild(li);
+
+            onYouTubeIframeAPIReady(li.id, t); // pass the id to the function
+        };
+
+        // youtube vedio 가져오는 함수
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady(liId, t) {
+            new YT.Player(liId, {
+            height: '240',
+            width: '360',
+            videoId: t, // Use t (the inputted text) as the video id
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+        }
+
         // api 요청보내는 함수
         const apiPost = async () => {
         const result = await fetch(openAIUrl, {
@@ -141,11 +180,17 @@
         })
             .then((res) => res.json())
             .then((res) => {
-            test += res.choices[0].message.content
-            test = test.split('\n').slice(2, 12)
-            getVideoId(test)  // youtube API 활용하여 title과 videoId 가져오는 함수
-            console.log(test)
+            gptRecList = res.choices[0].message.content.split('\n').slice(2, 12)
+            getVideoId(gptRecList)  // youtube API 활용하여 title과 videoId 가져오는 함수
+            console.log(`1 : ${gptRecList}`)  // 노래 리스트 확인
             printAnswer(res.choices[0].message.content);
+            // printVedio 들어갈 공간
+            // let vedioIdList;
+            // vedioIdList.push(recDict)
+            // for (const item of recDict) {
+            //     printVedio(item)
+            // }
+            console.log(`3 : ${recDict}`)
             })
             .catch((err) => {
             console.log(err);
@@ -162,9 +207,5 @@
         printQuestion();
         });
     </script>
-
-    <py-script>
-
-    </py-script>
 </body>
 </html>
