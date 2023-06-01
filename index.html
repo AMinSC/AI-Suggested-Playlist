@@ -68,7 +68,7 @@
         });
 
 
-        // youtube api 를 활용하여, ChatGPT가 추천해준 노래 리스트를 search 한 뒤, 영상 제목과 영상 id 가져오는 함수
+        // youtube api 를 활용하여, ChatGPT가 추천해준 노래 리스트를 search 한 뒤, 영상 id 가져오는 함수
         const getVideoId = (recList) => {
             for (const i of recList) {
                 optionParams['q'] = i
@@ -127,13 +127,13 @@
         $chatList.appendChild(li);
         };
 
-        // 화면에 답변 그려주는 함수
-        function printVedio (t) {
+        // 화면에 답변 youtube player 뿌려주는 함수
+        function printVedio (vedioId) {
             let li = document.createElement("li");
             li.id = "player" + videoIdCounter++;
             $vedioList.appendChild(li);
 
-            onYouTubeIframeAPIReady(li.id, t); // pass the id to the function
+            onYouTubeIframeAPIReady(li.id, vedioId);
         };
 
         // youtube vedio 가져오는 함수
@@ -142,11 +142,11 @@
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        function onYouTubeIframeAPIReady(liId, t) {
+        function onYouTubeIframeAPIReady(liId, id) {
             new YT.Player(liId, {
             height: '240',
             width: '360',
-            videoId: t, // Use t (the inputted text) as the video id
+            videoId: id,
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
