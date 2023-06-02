@@ -68,25 +68,26 @@ class Gpt {
     }
 
     // api 요청보내는 함수
-    async apiPost() {
-        const result = await fetch(this.openAIUrl, {
+async apiPost() {
+    try {
+        const response = await fetch(this.openAIUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(this.data),
             redirect: "follow",
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                this.answer = res.choices[0].message.content
-                console.log(this.answer.split('\n').slice(2, 12));
-                this.printAnswer(this.answer)
-            })
-            .catch((err) => {
-                console.log(err);
         });
+
+        const result = await response.json();
+        this.answer = result.choices[0].message.content;
+        console.log(this.answer.split('\n').slice(2, 12));
+        this.printAnswer(this.answer);
+    } catch (err) {
+        console.log(err);
     }
+}
+
 
     getAnswer() {
         return this.answer;

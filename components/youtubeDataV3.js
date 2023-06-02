@@ -22,7 +22,7 @@ class Search{
     }
 
     // youtube api 를 활용하여, ChatGPT가 추천해준 노래 리스트를 search 한 뒤, 영상 id 가져오는 함수
-    getVideoId(recList) {
+    async getVideoId(recList) {
         for (const i of recList) {
             optionParams['q'] = i
             let url="https://www.googleapis.com/youtube/v3/search?";
@@ -33,13 +33,14 @@ class Search{
             //url의마지막에 붙어있는 & 정리
             url = url.substr(0, url.length - 1);
     
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(`2 : ${data.items[0].id.videoId}`)
-                    // printVedio(data.items[0].id.videoId)
-                })
-                .catch(error => console.log(error));
+            try {
+                let response = await fetch(url)
+                let data = await response.json();
+                console.log(`2 : ${data.items[0].id.videoId}`);
+                // printVedio(data.items[0].id.videoId)
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
