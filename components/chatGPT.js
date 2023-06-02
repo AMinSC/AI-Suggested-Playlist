@@ -17,16 +17,18 @@ class Gpt {
         // 화면에 뿌려줄 데이터, 질문들
         this.questionData = [];
 
+
         // input에 입력된 질문 받아오는 함수
         $input.addEventListener("input", (e) => {
             this.question = e.target.value;
         });
 
+        // main.js 로 빼놔야 될 함수
         $form.addEventListener("submit", (e) => {
             e.preventDefault();
             $input.value = null;
             this.sendQuestion(this.question);
-            this.apiPost();
+            this.apiPost();  // point
             this.printQuestion();
         });
     }
@@ -45,6 +47,7 @@ class Gpt {
         }
     }
 
+    // main.js 에 빠져도 될 함수?
     // 화면에 질문 그려주는 함수
     async printQuestion() {
         if (this.question) {
@@ -78,19 +81,14 @@ async apiPost() {
             body: JSON.stringify(this.data),
             redirect: "follow",
         });
-
-        const result = await response.json();
-        this.answer = result.choices[0].message.content;
-        console.log(this.answer.split('\n').slice(2, 12));
-        this.printAnswer(this.answer);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-
-    getAnswer() {
-        return this.answer;
+            const result = await response.json();
+            this.answer = result.choices[0].message.content;
+            console.log(this.answer.split('\n').slice(2, 12));
+            this.printAnswer(this.answer);
+            // return response
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
