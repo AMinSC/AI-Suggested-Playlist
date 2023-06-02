@@ -79,11 +79,17 @@ class Gpt {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res.choices[0].message.content.split('\n').slice(2, 12));
+                this.answer = res.choices[0].message.content
+                console.log(this.answer.split('\n').slice(2, 12));
+                this.printAnswer(this.answer)
             })
             .catch((err) => {
                 console.log(err);
-            });
+        });
+    }
+
+    getAnswer() {
+        return this.answer;
     }
 }
 
