@@ -4,6 +4,8 @@ import Search from './components/youtubeDataV3.js'
 import { config } from './apikey.js'
 import videoPlayer from './components/youtubeIFramePlayer.js';
 
+import { LoadingWithMask, closeLoadingWithMask } from './components/loading.js';
+
 
 // youtube key
 let videoIdKey = config.apikey;
@@ -39,20 +41,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();
         $input.value = null;
+        LoadingWithMask('.components/\Infinity-0.8s-200px.gif');
         let answer = await InstanceGpt.apiPost();
         console.log(answer);
         
-        // 할당량 복구까지 아래 코드 주석
-        let InstanceSearch = new Search(videoIdKey, answer)
-        let videoId = await InstanceSearch.getVideoId();
-        console.log(videoId)
+        // 할당량 복구까지 아래 코드 주석, 로딩 체크(할당량)
+        // let InstanceSearch = new Search(videoIdKey, answer)
+        // let videoId = await InstanceSearch.getVideoId();
+        // console.log(videoId)
         
-        // videoId를 순회하며 플레이어 등록하기
-        for (const i of videoId) {
-            await ytReady;
-            // InstancePlayer = new videoPlayer()  // 전역 변수로 이전 테스트
-            let $li = document.createElement("li");
-            InstancePlayer.printvideo($videoList, $li, i)
-        }
+        // // videoId를 순회하며 플레이어 등록하기
+        // for (const i of videoId) {
+        //     await ytReady;
+        //     // InstancePlayer = new videoPlayer()  // 전역 변수로 이전 테스트
+        //     let $li = document.createElement("li");
+        //     InstancePlayer.printvideo($videoList, $li, i)
+        // }
     })
+    closeLoadingWithMask();
 });
