@@ -36,7 +36,7 @@ class Search{
             try {
                 let response = await fetch(url)
                 let data = await response.json();
-                console.log(`2 : ${data.items[0].id.videoId}`);
+                console.log(`video id : ${data.items[0].id.videoId}`);
                 this.videoIdList.push(data.items[0].id.videoId)
             } catch (error) {
                 console.log(error);
