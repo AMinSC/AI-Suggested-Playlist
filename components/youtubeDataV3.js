@@ -1,7 +1,7 @@
 class Search{
-    constructor($youtube_api, $vedioList) {
+    constructor($youtube_api, $videoList) {
         this.YOUTUBE_API = $youtube_api
-        this.$vedioList = $vedioList;
+        this.$videoList = $videoList;
 
         //YOUTUBE DATA API v3. Search
         //help for params : https://developers.google.com/youtube/v3/docs/search/list#--
@@ -22,7 +22,8 @@ class Search{
 
     // youtube api 를 활용하여, ChatGPT가 추천해준 노래 리스트를 search 한 뒤, 영상 id 가져오는 함수
     async getVideoId() {
-        for (const i of this.$vedioList) {
+        this.videoIdList = []
+        for (const i of this.$videoList) {
             this.optionParams['q'] = i
             let url="https://www.googleapis.com/youtube/v3/search?";
             for(let option in this.optionParams){
@@ -35,15 +36,13 @@ class Search{
             try {
                 let response = await fetch(url)
                 let data = await response.json();
-                this.vedioIdList = []
                 console.log(`2 : ${data.items[0].id.videoId}`);
-                this.vedioIdList.push(data.items[0].id.videoId)
-                // printVedio(data.items[0].id.videoId)
+                this.videoIdList.push(data.items[0].id.videoId)
             } catch (error) {
                 console.log(error);
             }
         }
-        return this.vedioIdList
+        return this.videoIdList
     }
 }
 

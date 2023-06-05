@@ -18,7 +18,7 @@ class Gpt {
             },
             {
                 "role": "assistant",
-                "content": "좋은 팝송 리스트를 추천해 드립니다.\n\
+                "content": "좋은 팝송 리스트를 추천해 드립니다.\n\n\
                 1. Thinking Out Loud - Ed Sheeran\n\
                 2. Shape of You - Ed Sheeran\n\
                 3. Hello - Adele\n\
@@ -28,7 +28,7 @@ class Gpt {
                 7. Can't Stop The Feeling! - Justin Timberlake\n\
                 8. Bad Guy - Billie Eilish\n\
                 9. Blinding Lights - The Weeknd\n\
-                10. Don't Stop Believin' - Journey\n\
+                10. Don't Stop Believin' - Journey\n\n\
                 이런 노래들이 새벽의 고요함과 잘 어울릴 것 같습니다. 감상하세요!"
             },
             {
@@ -58,21 +58,6 @@ class Gpt {
         }
     }
 
-    // main.js 에 빠져도 될 함수?
-    // 화면에 질문 그려주는 함수
-    printQuestion() {
-        if (this.question) {
-            let li = document.createElement("li");
-            li.classList.add("question");
-            this.questionData.map((el) => {
-                li.innerText = el.content;
-            });
-            this.$chatList.appendChild(li);
-            this.questionData = [];
-            this.question = false;
-        }
-    }
-
     // 화면에 답변 그려주는 함수
     printAnswer(answer) {
         let li = document.createElement("li");
@@ -94,7 +79,6 @@ class Gpt {
                 redirect: "follow",
             });
                 const result = await response.json();
-                this.printQuestion()
                 this.answer = result.choices[0].message.content;
                 this.printAnswer(this.answer);
             } catch (err) {

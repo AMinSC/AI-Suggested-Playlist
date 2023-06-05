@@ -1,21 +1,25 @@
-class VedioPring {
+class videoPlayer {
     constructor() {
-        // youtube vedio 가져오는 함수
+        // youtube video 가져오는 함수
         this.tag = document.createElement('script');
         this.tag.src = "https://www.youtube.com/iframe_api";
         this.firstScriptTag = document.getElementsByTagName('script')[0];
-        this.firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        this.firstScriptTag.parentNode.insertBefore(this.tag, this.firstScriptTag);
+
+        this.videoIdCounter = 0;
 
         this.done = false
+
+        this.onPlayerReady = this.onPlayerReady.bind(this);
+        this.onPlayerStateChange = this.onPlayerStateChange.bind(this);
     }
 
     // 화면에 답변 youtube player 뿌려주는 함수
-    printVedio (vedioId) {
-        let li = document.createElement("li");
-        li.id = "player" + videoIdCounter++;
-        $vedioList.appendChild(li);
+    printvideo ($videoList, $li, videoId) {
+        $li.id = "player" + this.videoIdCounter++;
+        $videoList.appendChild($li);
     
-        onYouTubeIframeAPIReady(li.id, vedioId);
+        this.onYouTubeIframeAPIReady($li.id, videoId);
     };
 
     onYouTubeIframeAPIReady(liId, id) {
@@ -24,8 +28,8 @@ class VedioPring {
         width: '360',
         videoId: id,
         events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onReady': this.onPlayerReady,
+            'onStateChange': this.onPlayerStateChange
         }
         });
     }
@@ -35,8 +39,8 @@ class VedioPring {
     }
 
     onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 6000);
+        if (event.data == this.YT.PlayerState.PLAYING && !this.done) {
+            setTimeout(this.stopVideo, 6000);
             this.done = true;
         }
     }
@@ -45,4 +49,4 @@ class VedioPring {
     }
 }
 
-export default VedioPring
+export default videoPlayer
