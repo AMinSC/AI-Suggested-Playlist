@@ -5,6 +5,7 @@ ormi assignment
 - chatGPT api를 활용, chatGPT답변에서 노래 리스트만 추출하여 변수에 지정
 - google YouTube Data API v3를 활용하여, 노래 리스트를 search한 뒤, videoId값을 구함(추후 videoId를 활용하여 play_list에 추가할 예정)
 - google YouTube IFrame Player API를 활용하여, 앞에서 구한 videoId값으로 영상을 가져와서 웹페이지 지정된 위치에 player 만들기
+- chatGPT 비동기 통신중 로딩 화면 구현
 
 ## 구현해야할 사항
 - GitHub Pages를 활용하여 배포할 경우에 youtube key를 노출하지 않으면서 문제없이 구동될 수 있도록 개선(Netlify)
@@ -13,3 +14,4 @@ ormi assignment
   - play list 생성 및 영상 추가가 된다면 기존 player는 제거
 - 홈페이지 꾸미기, chatGPT 질문Guide
 - 코드 리펙토링
+- 로딩 화면 구현했으나, 질문을 2회 이상 할 경우, 기존 답변에서 지속 로딩 화면 노출 이슈
