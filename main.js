@@ -41,8 +41,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();
         $input.value = null;
-        LoadingWithMask('.components/\Infinity-0.8s-200px.gif');
+        LoadingWithMask('./components/Infinity-0.8s-200px.gif');
         let answer = await InstanceGpt.apiPost();
+        closeLoadingWithMask();
         console.log(answer);
         
         // 할당량 복구까지 아래 코드 주석, 로딩 체크(할당량)
@@ -58,5 +59,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //     InstancePlayer.printvideo($videoList, $li, i)
         // }
     })
-    closeLoadingWithMask();
 });

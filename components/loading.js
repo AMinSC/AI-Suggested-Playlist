@@ -8,16 +8,20 @@ export function LoadingWithMask(gif) {
     mask.id = 'mask';
     mask.style.position = 'absolute';
     mask.style.zIndex = '9000';
-    mask.style.backgroundColor = '#000000';
+    mask.style.backgroundColor = '#35363a';
     mask.style.display = 'none';
     mask.style.left = '0';
     mask.style.top = '0';
 
     let loadingImg = document.createElement("img");
     loadingImg.src = gif;
+    loadingImg.style.backgroundColor = '#35363a';
     loadingImg.style.position = 'absolute';
     loadingImg.style.display = 'block';
-    loadingImg.style.margin = '0px auto';
+    loadingImg.style.margin = '0 auto';
+    loadingImg.style.left = '50%';
+    loadingImg.style.top = '50%';
+    loadingImg.style.transform = 'translate(-50%, -50%)';
 
     //화면에 레이어 추가
     document.body.appendChild(mask);
