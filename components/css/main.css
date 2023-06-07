@@ -1,0 +1,58 @@
+/* 색상 구성표 */
+body {
+    background-color: #f0f0f0; 
+    color: #333;
+}
+
+
+/* 타이포그래피 */
+body {
+    font-family: 'Helvetica', sans-serif;
+}
+
+
+/* 간격 및 레이아웃 */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 애니메이션 및 전환 */
+button {
+    transition: background-color 0.3s ease;
+}
+
+
+/* 이미지 및 배경 */
+button:hover {
+    background-color: #555;
+}
+
+
+/* 이미지 및 배경 */
+body {
+    background-image: url('/asset/IMG_6815.jpg');
+    background-size: cover;
+}
+
+
+/* 일관성을 위해 CSS 변수 사용 */
+:root {
+    --main-color: #ff6347;
+    --secondary-color: #5f9ea0;
+}
+
+body {
+    color: var(--main-color);
+}
+
+
+/* 상자 그림자 및 레이어링 */
+div {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

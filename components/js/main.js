@@ -1,10 +1,13 @@
 // Local Application Library
-import Gpt from './components/chatGPT.js'
-import Search from './components/youtubeDataV3.js'
-import { config } from './apikey.js'
-import videoPlayer from './components/youtubeIFramePlayer.js';
+import Gpt from './chatGPT.js'
+import Search from './youtubeDataV3.js'
+import { config } from '../apikey.js'
+import videoPlayer from './youtubeIFramePlayer.js';
 
-import { LoadingWithMask, closeLoadingWithMask } from './components/loading.js';
+import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
+
+let $radioButtons = document.querySelectorAll("input[type='radio']")
+let $textField = document.querySelector(".place input[type='text']")
 
 
 // youtube key
@@ -29,10 +32,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     let question;
 
-    // 질문을 chatGPT api에 전달하기 위한 기능
-    $input.addEventListener("input", (e) => {
-        question = e.target.value;
+
+    // 체크박스에서 선택된 값을 가져옵니다.
+    let selectedAges = [];
+    $radioButtons.forEach((radioButton) => {
+        if (radioButton.checked) {
+            selectedAges.push(radioButton.id);
+        }
     });
+
+    
+    //
+    question = `${selectedAges} ${$textField} 감성적인 팝송 리스트 추천 해줘`
 
     // GPT 인스턴스 변수 생성
     let InstanceGpt = new Gpt(document.querySelector("ul"), question)
@@ -41,7 +52,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();
         $input.value = null;
-        LoadingWithMask('./components/Infinity-0.8s-200px.gif');
+        LoadingWithMask('../asset/Infinity-0.8s-200px.gif');
         let answer = await InstanceGpt.apiPost();
         closeLoadingWithMask();
         console.log(answer);
