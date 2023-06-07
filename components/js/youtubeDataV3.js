@@ -1,12 +1,11 @@
 class Search {
-    constructor($videoList) {
-        this.$videoList = $videoList;
+    constructor() {
         this.videoIdList = []
         }
     
         // Function that retrieves the video id after searching the list of songs recommended by ChatGPT
-        async getVideoId($videoList) {
-        for (const i of $videoList) {
+        async getVideoId(videoList) {
+        for (const i of videoList) {
             const url = `/.netlify/functions/youtube?q=${i}`;
     
             try {
