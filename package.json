@@ -1,0 +1,25 @@
+{
+    "name": "AI-Suggested-Playlist",
+    "version": "1.0.0",
+    "description": "A sample project",
+    "main": "netlify/functions/youtube.js",
+    "scripts": {
+    "test": "mocha"
+    },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMinSC/AI-Suggested-Playlist.git"
+    },
+    "keywords": [
+    "sample", "tutorial"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+    "axios": "^0.21.1"
+    },
+    "devDependencies": {
+    "mocha": "^8.3.2",
+    "netlify-cli": "^3.38.15"
+    }
+}
