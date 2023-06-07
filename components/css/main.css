@@ -36,7 +36,7 @@ button:hover {
 
 /* 이미지 및 배경 */
 body {
-    background-image: url('/asset/IMG_6815.jpg');
+    background-image: url('/asset/bg.jpg');
     background-size: cover;
 }
 

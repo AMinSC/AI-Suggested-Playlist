@@ -14,9 +14,6 @@ import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
 const $textField = document.querySelector(".place input[type='text']")
 const $radioButtons = document.querySelectorAll("input[type='radio']")
 
-// youtube key
-const videoIdKey = process.env.API_KEY;
-
 // 인스턴스 변수 지정
 const InstancePlayer = new videoPlayer()
 
