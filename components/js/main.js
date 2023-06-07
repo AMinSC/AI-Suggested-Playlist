@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         console.log(answer);
         
         // 할당량 복구까지 아래 코드 주석, 로딩 체크(할당량)
-        // const InstanceSearch = new Search(videoIdKey, answer)
+        // const InstanceSearch = new Search(answer)
         // const videoId = await InstanceSearch.getVideoId();
         // console.log(videoId)
         
