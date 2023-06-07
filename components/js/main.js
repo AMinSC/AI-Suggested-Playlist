@@ -4,7 +4,7 @@ import Search from './youtubeDataV3.js'
 import videoPlayer from './youtubeIFramePlayer.js';
 
 // API Key
-import { config } from '../apikey.js'
+// import { config } from '../apikey.js'
 
 // Loading Library
 import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
@@ -15,7 +15,7 @@ const $textField = document.querySelector(".place input[type='text']")
 const $radioButtons = document.querySelectorAll("input[type='radio']")
 
 // youtube key
-const videoIdKey = config.apikey;
+const videoIdKey = process.env.API_KEY;
 
 // 인스턴스 변수 지정
 const InstancePlayer = new videoPlayer()
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector("ul"), question)
 
-    
+
     // HTML 폼에서 submit 이벤트를 처리하는 코드
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();

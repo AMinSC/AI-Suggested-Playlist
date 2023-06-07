@@ -43,7 +43,7 @@ body {
 
 /* 일관성을 위해 CSS 변수 사용 */
 :root {
-    --main-color: #ff6347;
+    --main-color: rgba(255, 99, 71, 0.8);
     --secondary-color: #5f9ea0;
 }
 
@@ -54,5 +54,6 @@ body {
 
 /* 상자 그림자 및 레이어링 */
 div {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3); */
+    background-color: rgba(67, 89, 94, 0.2);
 }
