@@ -14,7 +14,7 @@ class videoPlayer {
         this.onPlayerStateChange = this.onPlayerStateChange.bind(this);
     }
 
-    // 화면에 답변 youtube player 뿌려주는 함수
+    // youtube player를 li 태그에 추가해주는 함수
     printvideo ($videoList, $li, videoId) {
         $li.id = "player" + this.videoIdCounter++;
         $videoList.appendChild($li);
@@ -22,6 +22,7 @@ class videoPlayer {
         this.onYouTubeIframeAPIReady($li.id, videoId);
     };
 
+    // 화면에 답변 youtube player 뿌려주는 함수
     onYouTubeIframeAPIReady(liId, id) {
         new YT.Player(liId, {
         height: '240',

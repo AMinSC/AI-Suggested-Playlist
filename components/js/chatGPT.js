@@ -12,14 +12,6 @@ class Gpt {
                 // "content": "assistant는 친절한 답변가이다"
                 "content": "assistant는 노래 전문가이다."
             },
-            // {
-            //     "role": "user",
-            //     "content": "감성적인 팝송 리스트 추천 해줘"
-            // },
-            // {
-            //     "role": "assistant",
-            //     "content": "감성적인 팝송 리스트를 추천해 드립니다.\n\n\ Thinking Out Loud - Ed Sheeran\nShape of You - Ed Sheeran\nHello - Adele\nSomeone Like You - Adele\nJust The Way You Are - Bruno Mars\nUptown Funk - Bruno Mars\nCan't Stop The Feeling! - Justin Timberlake\nBad Guy - Billie Eilish\nBlinding Lights - The Weeknd\nDon't Stop Believin' - Journey\n\n이런 노래들이 새벽의 고요함과 잘 어울릴 것 같습니다. 감상하세요!"
-            // },
         ];
 
         // 화면에 뿌려줄 데이터, 질문들
@@ -51,7 +43,6 @@ class Gpt {
         this.$chatList.appendChild(li);
     }
     
-
     // api 요청보내는 함수
     async apiPost() {
         try {
