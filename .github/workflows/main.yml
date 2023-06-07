@@ -1,0 +1,19 @@
+name: CI
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository content
+      uses: actions/checkout@v2 # This is a standard action to checkout the repo content to the runner.
+
+    - name: Run a script
+      run: node main.js
+      env:
+        API_KEY: ${{ secrets.API_KEY }} # Pass the API_KEY as environment variable to the script
