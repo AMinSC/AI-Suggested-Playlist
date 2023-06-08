@@ -22,9 +22,11 @@ exports.handler = async function(event, context) {
             body: JSON.stringify(data),
         };
     } catch (error) {
+        console.error('Error fetching data from YouTube API:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: error.toString() }),
-            };
-        }
+            body: JSON.stringify({ error: 'Failed to fetch data from YouTube API' }),
+        };
+    }
+    
 }
