@@ -1,11 +1,12 @@
-const axios = require('axios');
+const querystring = require('querystring');
 
 exports.handler = async function(event, context) {
     const API_KEY = process.env.API_KEY;
     let query = event.queryStringParameters;
     
-    query.q = encodeURI(this.query.q)
-    const url = `https://youtube.googleapis.com/youtube/v3/search?${query}&key=${API_KEY}`;
+    query.q = encodeURI(query.q)
+    let queryString = querystring.stringify(query);
+const url = `https://youtube.googleapis.com/youtube/v3/search?${queryString}&key=${API_KEY}`;
 
     try {
         const { data } = await axios.get(url);
