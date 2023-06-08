@@ -10,15 +10,18 @@ exports.handler = async function(event, context) {
     console.log(`youtube: ${url}`)
 
     try {
+        console.log(`Requesting: ${url}`);
         const { data } = await axios.get(url);
+        console.log(`Received data: ${JSON.stringify(data, null, 2)}`);
         return {
-        statusCode: 200,
-        body: JSON.stringify(data),
+            statusCode: 200,
+            body: JSON.stringify(data),
         };
     } catch (error) {
+        console.error(`Error: ${error}`);
         return {
-        statusCode: 500,
-        body: error.toString(),
+            statusCode: 500,
+            body: error.toString(),
         };
-    }
+    }    
 };

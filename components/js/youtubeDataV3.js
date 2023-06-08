@@ -14,9 +14,6 @@ class Search {
             videoDuration: "medium",
             videoEmbeddable: "true",  // ture일 경우 퍼갈 수 있는 영상만 검색
         }
-
-        //한글을 검색어로 전달하기 위해선 url encoding 필요!
-        this.optionParams.q = encodeURI(this.optionParams.q);
     }
     
     // Function that retrieves the video id after searching the list of songs recommended by ChatGPT
@@ -24,6 +21,8 @@ class Search {
         this.videoIdList = []
         for (const i of videoList) {
             this.optionParams['q'] = i
+            //한글을 검색어로 전달하기 위해선 url encoding 필요!
+            this.optionParams.q = encodeURI(this.optionParams.q);
             let url="/.netlify/functions/youtube?";
             for(let option in this.optionParams){
                 url += option + "=" + this.optionParams[option] + "&";
