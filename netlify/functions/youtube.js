@@ -1,13 +1,14 @@
+const axios = require('axios');
 const querystring = require('querystring');
 
 exports.handler = async function(event, context) {
     const API_KEY = process.env.API_KEY;
     let query = event.queryStringParameters;
     
-    query.q = encodeURI(query.q)
+    query.q = encodeURI(query.q);
     let queryString = querystring.stringify(query);
     const url = `https://youtube.googleapis.com/youtube/v3/search?${queryString}&key=${API_KEY}`;
-    console.log(`youtube: ${url}`)
+    console.log(`youtube: ${url}`);
 
     try {
         console.log(`Requesting: ${url}`);
@@ -23,5 +24,5 @@ exports.handler = async function(event, context) {
             statusCode: 500,
             body: error.toString(),
         };
-    }    
+    }
 };
