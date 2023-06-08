@@ -32,6 +32,7 @@ class Search {
             url = url.substr(0, url.length - 1);
             console.log(`datav3: ${url}`)
 
+            // 서버 응답 테스트
             try {
                 let response = await fetch(url);
                 if (!response.ok) {
@@ -44,14 +45,6 @@ class Search {
             } catch (error) {
                 console.log(error);
             }
-            // try {
-            // let response = await fetch(url);
-            // let data = await response.json();
-            // console.log(`video id : ${data.items[0].id.videoId}`);
-            // this.videoIdList.push(data.items[0].id.videoId);
-            // } catch (error) {
-            // console.log(error);
-            // }
         }
         return this.videoIdList;
     }

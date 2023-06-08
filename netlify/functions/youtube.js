@@ -3,23 +3,26 @@ const querystring = require('querystring');
 
 exports.handler = async function(event, context) {
     const API_KEY = process.env.API_KEY;
-    let query = event.queryStringParameters;
+    // 쿼리 매개변수
+    const q = event.queryStringParameters.q;
+    const part = event.queryStringParameters.part;
+    const type = event.queryStringParameters.type;
+    const maxResults = event.queryStringParameters.maxResults;
+    const order = event.queryStringParameters.order;
+    const regionCode = event.queryStringParameters.regionCode;
+    const videoDuration = event.queryStringParameters.videoDuration;
+    const videoEmbeddable = event.queryStringParameters.videoEmbeddable;
     
-    query.q = encodeURI(query.q);
-    let queryString = querystring.stringify(query);
-    const url = `https://youtube.googleapis.com/youtube/v3/search?${queryString}&key=${API_KEY}`;
-    console.log(`youtube: ${url}`);
+    q = encodeURI(q);
+    const url = `https://youtube.googleapis.com/youtube/v3/search?q=${q}&part=${part}&type=${type}&maxResults=${maxResults}&order=${order}&regionCode=${regionCode}&videoDuration${videoDuration}&videoEmbeddable=${videoEmbeddable}&key=${API_KEY}`;
 
     try {
-        console.log(`Requesting: ${url}`);
         const { data } = await axios.get(url);
-        console.log(`Received data: ${JSON.stringify(data, null, 2)}`);
         return {
             statusCode: 200,
             body: JSON.stringify(data),
         };
     } catch (error) {
-        console.error(`Error: ${error}`);
         return {
             statusCode: 500,
             body: JSON.stringify({ error: error.toString() }),
