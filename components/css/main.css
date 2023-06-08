@@ -57,3 +57,14 @@ div {
     /* box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3); */
     background-color: rgba(67, 89, 94, 0.2);
 }
+
+/* player 설정 */
+#videoList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* 각 아이템들 사이에 공간을 동일하게 배분 */
+}
+
+#videoList iframe {
+    margin: 10px; /* 상하좌우 간격을 10px로 설정 */
+}
