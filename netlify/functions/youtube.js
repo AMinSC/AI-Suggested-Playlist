@@ -6,7 +6,8 @@ exports.handler = async function(event, context) {
     
     query.q = encodeURI(query.q)
     let queryString = querystring.stringify(query);
-const url = `https://youtube.googleapis.com/youtube/v3/search?${queryString}&key=${API_KEY}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?${queryString}&key=${API_KEY}`;
+    console.log(`youtube: ${url}`)
 
     try {
         const { data } = await axios.get(url);
