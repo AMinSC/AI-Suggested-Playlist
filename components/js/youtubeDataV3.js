@@ -7,7 +7,6 @@ class Search {
         this.optionParams={
             q: '',
             part: "snippet",
-            key: this.YOUTUBE_API,
             type: "video",
             maxResults: 1,
             order: "viewCount",
@@ -25,7 +24,7 @@ class Search {
         this.videoIdList = []
         for (const i of videoList) {
             this.optionParams['q'] = i
-            let url="https://www.googleapis.com/youtube/v3/search?";
+            let url="/.netlify/functions/youtube?";
             for(let option in this.optionParams){
                 url += option + "=" + this.optionParams[option] + "&";
             }
