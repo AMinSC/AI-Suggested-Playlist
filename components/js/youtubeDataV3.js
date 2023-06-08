@@ -33,13 +33,25 @@ class Search {
             console.log(`datav3: ${url}`)
 
             try {
-            let response = await fetch(url);
-            let data = await response.json();
-            console.log(`video id : ${data.items[0].id.videoId}`);
-            this.videoIdList.push(data.items[0].id.videoId);
+                let response = await fetch(url);
+                if (!response.ok) {
+                    console.log(`Server error: ${response.status}`);
+                    continue;  // Skip this iteration and proceed with the next video in the list
+                }
+                let data = await response.json();
+                console.log(`video id : ${data.items[0].id.videoId}`);
+                this.videoIdList.push(data.items[0].id.videoId);
             } catch (error) {
-            console.log(error);
+                console.log(error);
             }
+            // try {
+            // let response = await fetch(url);
+            // let data = await response.json();
+            // console.log(`video id : ${data.items[0].id.videoId}`);
+            // this.videoIdList.push(data.items[0].id.videoId);
+            // } catch (error) {
+            // console.log(error);
+            // }
         }
         return this.videoIdList;
     }
