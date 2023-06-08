@@ -22,7 +22,7 @@ exports.handler = async function(event, context) {
         console.error(`Error: ${error}`);
         return {
             statusCode: 500,
-            body: error.toString(),
-        };
-    }
-};
+            body: JSON.stringify({ error: error.toString() }),
+            };
+        }
+}
