@@ -1,9 +1,67 @@
 /* 색상 구성표 */
 body {
     background-color: #f0f0f0; 
-    color: #333;
+    color: #8088b2;
 }
 
+/* 테스트 */
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Style for your radio buttons */
+.year label {
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.year input[type='radio'] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+/* Style for your input field */
+.place input[type='text'] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for your button */
+.place button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.place button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the main and section elements */
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* 테스트 끝 */
 
 /* 타이포그래피 */
 body {
@@ -23,30 +81,12 @@ body {
 }
 
 
-/* 애니메이션 및 전환 */
-button {
-    transition: background-color 0.3s ease;
-}
-
-
-/* 이미지 및 배경 */
-button:hover {
-    background-color: #555;
-}
-
-
-/* 일관성을 위해 CSS 변수 사용 */
-:root {
-    --main-color: rgba(255, 99, 71, 0.8);
-    --secondary-color: #5f9ea0;
-}
-
 
 /* 상자 그림자 및 레이어링 */
-div {
-    /* box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3); */
+/* div {
+    box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3);
     background-color: rgba(67, 89, 94, 0.2);
-}
+} */
 
 /* player 설정 */
 #videoList {
