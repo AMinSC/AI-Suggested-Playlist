@@ -40,10 +40,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // GPT 질문 (목적)
-    if (!!$textField === flase) {
-        $textField = '새벽에 듣기 좋은'
-    }
+    // // GPT 질문 (목적)
+    // if (!!$textField === flase) {
+    //     $textField = '새벽에 듣기 좋은'
+    // }
     
     // GPT 질문 정의
     const question = `연도: ${selectedYears} 해당 연도에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`
