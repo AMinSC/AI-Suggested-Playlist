@@ -16,7 +16,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
     background-image: url('/asset/bg_1.jpg');
     background-size: cover;
 }
@@ -62,6 +63,9 @@ div {
 #videoList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     justify-content: space-around; /* 각 아이템들 사이에 공간을 동일하게 배분 */
 }
 
@@ -75,6 +79,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0; /* 축소 방지 */
 }
 nav ul {
     list-style: none;
@@ -94,11 +99,12 @@ main {
     flex-grow: 1;
 }
 section {
+    flex-grow: 1; /* 세션이 나머지 공간을 차지하도록 커짐 */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    overflow: auto; /* 콘텐츠가 컨테이너보다 큰 경우 스크롤을 추가 함 */
 }
 
 
@@ -108,6 +114,7 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: rgba(45,45,47,1);
+    flex-shrink: 0; /* 축소 방지 */
 }
 footer p {
     color: rgba(24,36,73,1);
