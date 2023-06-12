@@ -36,7 +36,9 @@ class videoPlayer {
     }
 
     onPlayerReady(event) {
-        event.target.playVideo();
+        if (this.videoIdCounter === 1) { // 몇 번째 비디오를 실행시킬 것인지
+            event.target.playVideo();
+        }
     }
 
     onPlayerStateChange(event) {

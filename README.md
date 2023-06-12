@@ -7,7 +7,9 @@
 - 1차 제공 서비스는 AI가 추천해주는 노래 리스트를 유튜브 플레이어만 제공
 
 ## 서비스 웹 페이지 주소
-- `https://majestic-salamander-540c1f.netlify.app`
+- [서비스이동] [0]
+
+[0]: https://majestic-salamander-540c1f.netlify.app
 
 ## 폴더 트리
 ```
