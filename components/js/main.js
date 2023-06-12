@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     
     // GPT 질문 정의
-    const question = `${selectedYears} ${$textField} 감성적인 팝송 리스트 추천 해줘`
+    const question = `year: ${selectedYears}, 목적: ${$textField} year와 목적에 맞는 감성적인 팝송 리스트 추천 해줘`
 
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector("main > ul"), question)
