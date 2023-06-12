@@ -20,7 +20,7 @@
             <nav>
                 <ul>
                     <li><a class="menu" href="index.html">Home</a></li>
-                    <li><a class="menu" href="#" onclick="showAlert()">Player List</a></li>
+                    <li><a class="menu" href="#" onclick="showAlert(event)">Player List</a></li>
                 </ul>
             </nav>
         </header>
@@ -30,7 +30,7 @@
                 <h2>나만의 감성 음악 가이드를 받아보세요! 시간대를 선택하고 원하시는 바이브를 설명해주세요.</h2>
                 <ul></ul>
                 <form action="post" class="answer">
-                    <div class="year">  <!-- text로 수정.. 고려 -->
+                    <div class="year">
                         <div class="box box1">여행 갈 년도 선택</div>
                         <label for="70년대 이하"><input type="radio" name="year" id="70년대 이하">70년대 이하</label>
                         <label for="80년대"><input type="radio" name="year" id="80년대">80년대</label>
@@ -56,7 +56,8 @@
         <script src="./components/js/main.js" defer type="module"></script>
     </body>
     <script>
-        function showAlert() {
+        function showAlert(evnet) {
+            event.preventDefault();
             alert("준비 중입니다 :)");
         }
     </script>
