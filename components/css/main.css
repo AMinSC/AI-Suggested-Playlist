@@ -93,6 +93,14 @@ h1 {
 main {
     flex-grow: 1;
 }
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
 
 /* 푸터 */
 footer {

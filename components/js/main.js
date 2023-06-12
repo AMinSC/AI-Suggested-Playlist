@@ -33,15 +33,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
     // 체크박스에서 선택된 값을 가져옵니다.
-    const selectedAges = [];
+    const selectedYears = [];
     $radioButtons.forEach((radioButton) => {
         if (radioButton.checked) {
-            selectedAges.push(radioButton.id);
+            selectedYears.push(radioButton.id);
         }
     });
     
     // GPT 질문 정의
-    const question = `${selectedAges} ${$textField} 감성적인 팝송 리스트 추천 해줘`
+    const question = `${selectedYears} ${$textField} 감성적인 팝송 리스트 추천 해줘`
 
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector("main > ul"), question)

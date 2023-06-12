@@ -16,7 +16,7 @@
     </head>
     <body>
         <header>
-            <h1>Welcome to My Website!</h1>
+            <h1>Emotional pop song recommendation</h1>
             <nav>
                 <ul>
                     <li><a class="menu" href="index.html">Home</a></li>
@@ -25,27 +25,29 @@
             </nav>
         </header>
 
-        <main>
-            <h2>감성적인 팝송 추천</h2>
-            <ul></ul>
-            <form action="post" class="answer">
-                <div class="age">  <!-- text로 수정.. 고려 -->
-                    <div class="box box1">나이</div>
-                    <label for="10대 이하"><input type="radio" name="age" id="10대 이하">10대 이하</label>
-                    <label for="20대"><input type="radio" name="age" id="20대">20대</label>
-                    <label for="30대"><input type="radio" name="age" id="30대">30대</label>
-                    <label for="40대"><input type="radio" name="age" id="40대">40대</label>
-                    <label for="50대"><input type="radio" name="age" id="50대">50대</label>
-                    <label for="60대"><input type="radio" name="age" id="60대 이상">60대 이상</label>
-                </div>
-                <div class="place">
-                    <div class="text feel">목적</div>
-                    <input type="text" autofocus placeholder="드라이브, 새벽에 듣기 좋은"/>
-                    <button type="submit">갬성 여행</button>
-                </div>
-            </form>
-            <ol id="videoList"></ol>
-        </main>
+        <section>
+            <main>
+                <h2>감성적인 팝송 여행의 원하는 연도와 목적을 입력해 주세요</h2>
+                <ul></ul>
+                <form action="post" class="answer">
+                    <div class="year">  <!-- text로 수정.. 고려 -->
+                        <div class="box box1">여행 갈 연도 선택</div>
+                        <label for="under 70's"><input type="radio" name="year" id="under 70's">70년대 이하</label>
+                        <label for="80's"><input type="radio" name="year" id="80's">80년대</label>
+                        <label for="90's"><input type="radio" name="year" id="90's">90년대</label>
+                        <label for="2000's"><input type="radio" name="year" id="2000's">2000년대</label>
+                        <label for="2010's"><input type="radio" name="year" id="2010's">2010년대</label>
+                        <label for="2020+"><input type="radio" name="year" id="2020+">2020년대 이상</label>
+                    </div>
+                    <div class="place">
+                        <div class="text feel">여행 목적</div>
+                        <input type="text" autofocus placeholder="드라이브, 새벽에 듣기 좋은"/>
+                        <button type="submit">갬성 여행</button>
+                    </div>
+                </form>
+                <ol id="videoList"></ol>
+            </main>
+        </section>
 
         <footer>
             <p>Copyright &copy; 2023 My Website</p>
