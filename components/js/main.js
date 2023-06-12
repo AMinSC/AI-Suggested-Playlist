@@ -3,9 +3,6 @@ import Gpt from './chatGPT.js'
 import Search from './youtubeDataV3.js'
 import videoPlayer from './youtubeIFramePlayer.js';
 
-// API Key
-// import { config } from '../apikey.js'
-
 // Loading Library
 import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
 

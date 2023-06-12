@@ -68,3 +68,39 @@ div {
 #videoList iframe {
     margin: 10px; /* 상하좌우 간격을 10px로 설정 */
 }
+
+/* 헤더 */
+header {
+    background: rgba(45,45,47,1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+h1 {
+    color: rgba(24,36,73,1);
+    margin-left: 20px;
+}
+.menu {
+    margin-right: 20px;
+}
+
+/* 메인 */
+main {
+    flex-grow: 1;
+}
+
+/* 푸터 */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(45,45,47,1);
+}
+footer p {
+    color: rgba(24,36,73,1);
+}

@@ -12,9 +12,19 @@
         <link rel="stylesheet" href="./components/css/main.css">
 
         <!-- favicon -->
-        <link rel="icon" href="path_to_your_favicon">
+        <!-- <link rel="icon" href="path_to_your_favicon"> -->
     </head>
     <body>
+        <header>
+            <h1>Welcome to My Website!</h1>
+            <nav>
+                <ul>
+                    <li><a class="menu" href="test.html">Home</a></li>
+                    <li><a class="menu" href="#" onclick="showAlert()">Player List</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <h2>감성적인 팝송 추천</h2>
         <main>
             <ul></ul>
@@ -37,6 +47,15 @@
             <ol id="videoList"></ol>
         </main>
 
+        <footer>
+            <p>Copyright &copy; 2023 My Website</p>
+        </footer>
+
         <script src="./components/js/main.js" defer type="module"></script>
     </body>
+    <script>
+        function showAlert() {
+            alert("준비중 입니다 :)");
+        }
+    </script>
 </html>
