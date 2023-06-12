@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const question = `${selectedAges} ${$textField} 감성적인 팝송 리스트 추천 해줘`
 
     // GPT 인스턴스 변수 생성
-    const InstanceGpt = new Gpt(document.querySelector("ul"), question)
+    const InstanceGpt = new Gpt(document.querySelector("main > ul"), question)
 
 
     // HTML 폼에서 submit 이벤트를 처리하는 코드
