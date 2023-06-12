@@ -82,16 +82,25 @@ header {
     flex-shrink: 0; /* 축소 방지 */
 }
 nav ul {
-    list-style: none;
+    list-style-type: none; 
+    padding: 0;
     display: flex;
-    gap: 15px;
+    justify-content: center; 
+}
+nav ul li {
+    margin: 0 10px;
+}
+.menu {
+    color: white; 
+    text-decoration: none; 
+    font-size: 20px; 
+}
+.menu:hover {
+    color: #f9a602; 
 }
 h1 {
     color: rgba(24,36,73,1);
     margin-left: 20px;
-}
-.menu {
-    margin-right: 20px;
 }
 
 /* 메인 */
