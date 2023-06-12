@@ -39,9 +39,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
             selectedYears.push(radioButton.id);
         }
     });
+
+    // GPT 질문 (목적)
+    if (!!$textField === flase) {
+        $textField = '새벽에 듣기 좋은'
+    }
     
     // GPT 질문 정의
-    const question = `year: ${selectedYears}, 목적: ${$textField} year와 목적에 맞는 감성적인 팝송 리스트 추천 해줘`
+    const question = `연도: ${selectedYears} 해당 연도에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`
 
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector("main > ul"), question)
