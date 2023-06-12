@@ -13,12 +13,12 @@ body {
 
 /* 간격 및 레이아웃 */
 body {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    margin: 0px;
+    background-image: url('/asset/bg_1.jpg');
+    background-size: cover;
 }
 
 
