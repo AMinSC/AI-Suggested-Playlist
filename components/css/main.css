@@ -35,21 +35,10 @@ button:hover {
 }
 
 
-/* 이미지 및 배경 */
-body {
-    background-image: url('/asset/bg_1.jpg');
-    background-size: cover;
-}
-
-
 /* 일관성을 위해 CSS 변수 사용 */
 :root {
     --main-color: rgba(255, 99, 71, 0.8);
     --secondary-color: #5f9ea0;
-}
-
-body {
-    color: var(--main-color);
 }
 
 
@@ -96,7 +85,10 @@ nav ul li {
     font-size: 20px; 
 }
 .menu:hover {
-    color: #f9a602; 
+    color: #c7b0c2; 
+}
+.menu:visited {
+    color: #8088b2;
 }
 h1 {
     color: rgba(24,36,73,1);
