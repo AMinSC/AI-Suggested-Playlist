@@ -16,7 +16,11 @@ class Search {
         }
     }
     
-    // Function that retrieves the video id after searching the list of songs recommended by ChatGPT
+    /**
+     * 노래 리스트를 기준으로 youtubeDataV3 API를 활용하여, Search 후 video Id를 받아오는 함수
+     * @param {Array} videoList - chatGPT에게 받은 질문중 노래 리스트만 받습니다.
+     * @returns - youtubeDataV3 API를 활용하여, Search 후 video Id를 반환
+     */
     async getVideoId(videoList) {
         this.videoIdList = []
         for (const i of videoList) {

@@ -14,7 +14,12 @@ class videoPlayer {
         this.onPlayerStateChange = this.onPlayerStateChange.bind(this);
     }
 
-    // youtube player를 li 태그에 추가해주는 함수
+    /**
+     * youtube player를 li 태그에 추가해주는 함수
+     * @param {Element} $videoList - I Frame Player를 넣어줄 HTML Element
+     * @param {Element} $li - 최소 2개 이상의 video를 등록해야하기 때문에, 유니크한 값을 주기 위해 HTML Element를 새로 만들어서 제공합니다.
+     * @param {string} videoId - 함수를 호출하는 곳에서 forof문을 사용하여 Array의 각 string(videoId)값을 받습니다.
+     */
     printvideo ($videoList, $li, videoId) {
         $li.id = "player" + this.videoIdCounter++;
         $videoList.appendChild($li);
@@ -22,7 +27,11 @@ class videoPlayer {
         this.onYouTubeIframeAPIReady($li.id, videoId);
     };
 
-    // 화면에 답변 youtube player 뿌려주는 함수
+    /**
+     * 화면에 답변 youtube player 뿌려주는 함수
+     * @param {string} liId - 유니크한 값을 받습니다.
+     * @param {string} id - 호출한 함수에서 받은 값(videoId)을 그대로 받습니다.
+     */
     onYouTubeIframeAPIReady(liId, id) {
         new YT.Player(liId, {
         height: '240',

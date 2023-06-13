@@ -1,3 +1,7 @@
+/**
+ * chatGPT에게 질문하고, 답변 받기까지의 시간동안 로딩을 노출하는 함수
+ * @param {*} gif - 로딩화면에 노출된 gif
+ */
 export function LoadingWithMask(gif) {
     //화면의 높이와 너비를 구합니다.
     let maskHeight = document.body.scrollHeight;

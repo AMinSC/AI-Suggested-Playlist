@@ -1,4 +1,9 @@
 class Gpt {
+    /**
+     * chatGPT API를 활용하여 질문하는 클래스입니다.
+     * @param {Element} $chatList - 답변을 그려줄곳의 HTML element입니다.
+     * @param {string} question - chatGPT에게 하는 질문입니다.
+     */
     constructor($chatList, question) {
         this.$chatList = $chatList;
         this.question = question
@@ -9,7 +14,6 @@ class Gpt {
         this.data = [
             {
                 "role": "system",
-                // "content": "assistant는 친절한 답변가이다"
                 "content": "assistant는 노래 전문가이다."
             },
         ];
@@ -21,7 +25,10 @@ class Gpt {
         this.sendQuestion(this.question);
     }
 
-    // 사용자의 질문을 객체를 만들어서 push
+    /**
+     * 질문을 입력받고, 질문 쿼리에 push하는 함수
+     * @param {string} question - chatGPT에게 하는 질문 
+     */
     sendQuestion(question) {
         if (question) {
             this.data.push({
@@ -35,7 +42,10 @@ class Gpt {
         }
     }
 
-    // 화면에 답변 그려주는 함수
+    /**
+     * 화면에 답변 그려주는 함수
+     * @param {string} answer - GPT의 답변을 받습니다.
+     */
     printAnswer(answer) {
         let li = document.createElement("li");
         li.classList.add("answer");
@@ -43,7 +53,10 @@ class Gpt {
         this.$chatList.appendChild(li);
     }
     
-    // api 요청보내는 함수
+    /**
+     * api 요청보내는 함수
+     * @returns - chatGPT 답변중 노래 리스트만 추출해서 반환합니다.
+     */
     async apiPost() {
         try {
             const response = await fetch(this.openAIUrl, {

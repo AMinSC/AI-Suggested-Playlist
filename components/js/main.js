@@ -32,12 +32,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const $videoList = document.querySelector("#videoList")
 
 
-    // // GPT 질문 (목적)
-    // if (!!$textField === flase) {
-    //     $textField = '새벽에 듣기 좋은'
-    // }
-    
-
     // HTML 폼에서 submit 이벤트를 처리하는 코드
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();
