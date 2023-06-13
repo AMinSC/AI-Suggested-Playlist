@@ -8,6 +8,7 @@
 
 ## 서비스 웹 페이지 주소
 - [서비스이동]
+- YouTube API 할당량이 모두 소진되었을 경우, `매일 16:20 경 초기화`
 
 [서비스이동]: https://majestic-salamander-540c1f.netlify.app
 
