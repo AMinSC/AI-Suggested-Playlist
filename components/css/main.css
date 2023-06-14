@@ -1,10 +1,8 @@
 /* 색상 구성표 */
 body {
-    background-color: #f0f0f0; 
     color: #8088b2;
 }
 
-/* 테스트 */
 h2 {
     font-size: 2em;
     font-weight: bold;
@@ -12,22 +10,21 @@ h2 {
     margin-bottom: 1em;
 }
 
-/* Style for your radio buttons */
+/* 년도 옵션 */
 .year label {
     display: inline-block;
     margin: 10px;
     font-size: 1.2em;
 }
-
 .year input[type='radio'] {
     transform: scale(1.5);
     margin-right: 10px;
 }
 
-/* Style for your input field */
+/* 목적 옵션 */
 .place input[type='text'] {
     display: block;
-    width: 100%;
+    width: 96%;
     padding: 10px;
     font-size: 1em;
     margin-top: 1em;
@@ -35,10 +32,10 @@ h2 {
     border-radius: 5px;
 }
 
-/* Style for your button */
+/* 버튼 옵션 */
 .place button {
     display: block;
-    width: 96%;
+    width: 100%;
     padding: 10px;
     font-size: 1.2em;
     margin-top: 1em;
@@ -49,25 +46,23 @@ h2 {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+/* 버튼 마우스 오버 색상 */
 .place button:hover {
     background-color: #c7b0c2;
 }
 
-/* Styling the main and section elements */
+/* 질문을 가운데에 고정 */
 main {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
-/* 테스트 끝 */
 
-/* 타이포그래피 */
+/* 글자 배치 */
 body {
     font-family: 'Helvetica', sans-serif;
 }
-
 
 /* 간격 및 레이아웃 */
 body {
@@ -80,13 +75,11 @@ body {
     background-size: cover;
 }
 
-
-
 /* 상자 그림자 및 레이어링 */
-/* div {
+div {
     box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3);
     background-color: rgba(67, 89, 94, 0.2);
-} */
+}
 
 /* player 설정 */
 #videoList {
@@ -97,7 +90,6 @@ body {
     width: 100%;
     justify-content: space-around; /* 각 아이템들 사이에 공간을 동일하게 배분 */
 }
-
 #videoList iframe {
     margin: 10px; /* 상하좌우 간격을 10px로 설정 */
 }
