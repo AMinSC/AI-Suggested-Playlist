@@ -51,12 +51,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const InstanceGpt = new Gpt(document.querySelector("main > ul"), question)
         const answer = await InstanceGpt.apiPost();
         closeLoadingWithMask();
-        console.log(answer);
         
         // 할당량 복구까지 아래 코드 주석, 로딩 체크(할당량)
         const InstanceSearch = new Search()
         const videoId = await InstanceSearch.getVideoId(answer);
-        console.log(videoId)
         
         // videoId를 순회하며 플레이어 등록하기
         for (const i of videoId) {

@@ -1,6 +1,10 @@
 const axios = require('axios');
 const querystring = require('querystring');
 
+/**
+ * youtubeDataV3 에서 제공받은 데이터를 기준으로 youtube api 요청
+ * @returns youtube api로 부터 필요한 데이터(videoId) 값을 반환
+ */
 exports.handler = async function(event, context) {
     const API_KEY = process.env.API_KEY;
     // 쿼리 매개변수
@@ -23,7 +27,7 @@ exports.handler = async function(event, context) {
         };
     } catch (error) {
         console.error('Error fetching data from YouTube API:', error);
-        return {
+        return {  // Netlify log에서 error 체크
             statusCode: 500,
             body: JSON.stringify({ error: 'Failed to fetch data from YouTube API' }),
         };

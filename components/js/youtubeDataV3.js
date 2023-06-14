@@ -1,3 +1,4 @@
+/** chatGPT에게 받은 노래 리스트를 기준으로 youtube video Id값을 제공. */
 class Search {
     constructor() {
         this.videoIdList = []
@@ -36,15 +37,13 @@ class Search {
             url = url.substr(0, url.length - 1);
             console.log(`datav3: ${url}`)
 
-            // 서버 응답 테스트
             try {
                 let response = await fetch(url);
                 if (!response.ok) {
                     console.log(`Server error: ${response.status}`);
-                    continue;  // Skip this iteration and proceed with the next video in the list
+                    continue;
                 }
                 let data = await response.json();
-                console.log(`video id : ${data.items[0].id.videoId}`);
                 this.videoIdList.push(data.items[0].id.videoId);
             } catch (error) {
                 console.log(error);

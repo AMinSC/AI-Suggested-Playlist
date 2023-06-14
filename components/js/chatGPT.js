@@ -1,7 +1,8 @@
+/** chatGPT 의 질문을 업데이트 해주고 답변을 웹페이지에 제공 */
 class Gpt {
     /**
      * chatGPT API를 활용하여 질문하는 클래스입니다.
-     * @param {Element} $chatList - 답변을 그려줄곳의 HTML element입니다.
+     * @param {Element} $chatList - 답변을 그려줄곳의 요소값입니다.
      * @param {string} question - chatGPT에게 하는 질문입니다.
      */
     constructor($chatList, question) {
@@ -10,7 +11,6 @@ class Gpt {
 
         this.openAIUrl = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`;
 
-        // 질문과 답변 저장
         this.data = [
             {
                 "role": "system",
@@ -18,7 +18,7 @@ class Gpt {
             },
         ];
 
-        // 화면에 뿌려줄 데이터, 질문들
+        // 화면에 뿌려줄 (질문)데이터
         this.questionData = [];
         
         // 질문을 업데이트 함
@@ -46,8 +46,8 @@ class Gpt {
      * 화면에 답변 그려주는 함수
      * @param {string} answer - GPT의 답변을 받습니다.
      */
-    printAnswer(answer) {
-        let li = document.createElement("li");
+    answerRender(answer) {
+        const li = document.createElement("li");
         li.classList.add("answer");
         li.innerText = answer;
         this.$chatList.appendChild(li);
@@ -55,6 +55,7 @@ class Gpt {
     
     /**
      * api 요청보내는 함수
+     * api key 노출을 방지하기 위해, Netlify 서버리스 기능을 활용
      * @returns - chatGPT 답변중 노래 리스트만 추출해서 반환합니다.
      */
     async apiPost() {
@@ -69,8 +70,8 @@ class Gpt {
             });
                 const result = await response.json();
                 this.answer = result.choices[0].message.content;
-                console.log(this.answer.match(/(10|\d). \D+[\d]?\n/gm))
-                this.printAnswer(this.answer);
+                // console.log(this.answer.match(/(10|\d). \D+[\d]?\n/gm))
+                this.answerRender(this.answer);
                 
             } catch (err) {
                 console.log(err);
