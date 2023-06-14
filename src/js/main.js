@@ -26,9 +26,7 @@ function showAlert(event) {
     alert('준비 중입니다 :)');
 }
 
-// HTML 문서가 전부 파싱되고, DOM 트리가 완성되었을 때 발생하는 이벤트
-// 초기 스크립트 로딩에 주로 사용되며, 이 시점에서 DOM 요소에 접근하거나 이벤트 리스너를 등록하는 작업을 수행할 수 있음
-// window.addEventListener('DOMContentLoaded', event => {
+
 // DOM 요소를 변수에 지정
 const $input = document.querySelector('input');
 const $form = document.querySelector('form');
@@ -50,7 +48,7 @@ $form.addEventListener('submit', async e => {
     const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
 
     // GPT 인스턴스 변수 생성
-    const InstanceGpt = new Gpt(document.querySelector('main > ul'), question);
+    const InstanceGpt = new Gpt(document.querySelector('#GPT-answer'), question);
     const answer = await InstanceGpt.apiPost();
     closeLoadingWithMask();
 
@@ -65,4 +63,3 @@ $form.addEventListener('submit', async e => {
         InstancePlayer.printvideo($videoList, $li, i);
     }
 });
-// });
