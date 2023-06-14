@@ -1,0 +1,20 @@
+/* loading.css */
+#mask {
+    position: 'absolute';
+    z-index: '9000';
+    background-color: '#35363a';
+    display: 'none';
+    left: '0';
+    top: '0';
+    opacity: '0.3';
+}
+
+.loading-img {
+    background-color: '#35363a';
+    position: 'absolute';
+    display: 'block';
+    margin: '0 auto';
+    left: '50%';
+    top: '50%';
+    transform: 'translate(-50%, -50%)';
+}
