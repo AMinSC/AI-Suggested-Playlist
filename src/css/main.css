@@ -123,7 +123,7 @@ nav ul li {
     color: #8088b2;
 }
 h1 {
-    color: #8088b2;
+    color: rgb(158 160 169);
     margin-left: 20px;
 }
 
@@ -131,7 +131,6 @@ h1 {
 main {
     flex-grow: 1;
 }
-
 section {
     flex-grow: 1; /* 세션이 나머지 공간을 차지하도록 커짐 */
     display: flex;
@@ -151,5 +150,5 @@ footer {
     flex-shrink: 0; /* 축소 방지 */
 }
 footer p {
-    color: #8088b2;
+    color: rgb(158 160 169);
 }
