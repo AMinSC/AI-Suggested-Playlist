@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const $form = document.querySelector("form")
     const $videoList = document.querySelector("#videoList")
 
-
+    
     // HTML 폼에서 submit 이벤트를 처리하는 코드
     $form.addEventListener("submit", async (e) => {
         e.preventDefault();
