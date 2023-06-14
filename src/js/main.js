@@ -42,9 +42,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 selectedYears.push(radioButton.id);
             }
         });
-        const $input = document.querySelector("input")
-        const $form = document.querySelector("form")
-        const $videoList = document.querySelector("#videoList")
         $input.value = null;
         LoadingWithMask('../asset/Infinity-0.8s-200px.gif');
         // GPT 질문 정의
