@@ -123,7 +123,7 @@ nav ul li {
     color: #8088b2;
 }
 h1 {
-    color: rgba(24,36,73,1);
+    color: #8088b2;
     margin-left: 20px;
 }
 
@@ -131,13 +131,14 @@ h1 {
 main {
     flex-grow: 1;
 }
+
 section {
     flex-grow: 1; /* 세션이 나머지 공간을 차지하도록 커짐 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: auto; /* 콘텐츠가 컨테이너보다 큰 경우 스크롤을 추가 함 */
+    overflow: hidden; /* 콘텐츠가 컨테이너보다 큰 경우 스크롤을 추가 함 */
 }
 
 
@@ -150,5 +151,5 @@ footer {
     flex-shrink: 0; /* 축소 방지 */
 }
 footer p {
-    color: rgba(24,36,73,1);
+    color: #8088b2;
 }
