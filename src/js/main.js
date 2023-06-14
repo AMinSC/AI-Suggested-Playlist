@@ -23,6 +23,7 @@ const ytReady = new Promise(function(resolve) {
     };
 });
 
+const $form = document.querySelector("form")
 
 // HTML 폼에서 submit 이벤트를 처리하는 코드
 $form.addEventListener("submit", async (e) => {
@@ -36,7 +37,6 @@ $form.addEventListener("submit", async (e) => {
     });
     // DOM 요소를 변수에 지정
     const $input = document.querySelector("input")
-    const $form = document.querySelector("form")
     const $videoList = document.querySelector("#videoList")
 
     $input.value = null;
