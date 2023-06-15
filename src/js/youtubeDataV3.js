@@ -39,10 +39,6 @@ class Search {
 
             try {
                 let response = await fetch(url);
-                if (!response.ok) {
-                    console.log(`Server error: ${response.status}`);
-                    continue;
-                }
                 let data = await response.json();
                 this.videoIdList.push(data.items[0].id.videoId);
             } catch (error) {

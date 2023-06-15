@@ -22,7 +22,7 @@ class videoPlayer {
      * @param {string} videoId - 함수를 호출하는 곳에서 forof문을 사용하여 Array의 각 string(videoId)값을 받습니다.
      */
     printvideo ($videoList, $li, videoId) {
-        $li.id = "player" + this.videoIdCounter++;
+        $li.id = `player${this.videoIdCounter++}`;
         $videoList.appendChild($li);
     
         this.onYouTubeIframeAPIReady($li.id, videoId);
