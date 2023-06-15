@@ -35,8 +35,6 @@ class Search {
 
             //url의마지막에 붙어있는 & 정리
             url = url.substr(0, url.length - 1);
-            console.log(`datav3: ${url}`)
-
             try {
                 let response = await fetch(url);
                 let data = await response.json();

@@ -70,9 +70,7 @@ class Gpt {
             });
                 const result = await response.json();
                 this.answer = result.choices[0].message.content;
-                // console.log(this.answer.match(/(10|\d). \D+[\d]?\n/gm))
                 this.answerRender(this.answer);
-                
             } catch (err) {
                 console.log(err);
         }

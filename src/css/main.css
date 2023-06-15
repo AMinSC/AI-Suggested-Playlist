@@ -1,13 +1,14 @@
 /* 색상 구성표 */
 body {
     color: #8088b2;
-}
-
-h2 {
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1em;
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('/asset/bg_1.jpg');
+    background-size: cover;
 }
 
 /* 년도 옵션 */
@@ -51,30 +52,6 @@ h2 {
     background-color: #c7b0c2;
 }
 
-/* 질문을 가운데에 고정 */
-main {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* 글자 배치 */
-body {
-    font-family: 'Helvetica', sans-serif;
-}
-
-/* 간격 및 레이아웃 */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-image: url('/asset/bg_1.jpg');
-    background-size: cover;
-}
-
 /* 상자 그림자 및 레이어링 */
 div {
     box-shadow: 0 4px 8px 0 rgba(85, 85, 85, 0.3);
@@ -94,9 +71,9 @@ div {
     margin: 10px; /* 상하좌우 간격을 10px로 설정 */
 }
 
-/* 헤더 */
+/* header */
 header {
-    background: rgba(45,45,47,1);
+    background: #2d2d2f;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,13 +100,23 @@ nav ul li {
     color: #8088b2;
 }
 h1 {
-    color: rgb(158 160 169);
+    color: #9ea0a9;
     margin-left: 20px;
 }
 
-/* 메인 */
+/* main */
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+}
 main {
     flex-grow: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 section {
     flex-grow: 1; /* 세션이 나머지 공간을 차지하도록 커짐 */
@@ -141,14 +128,14 @@ section {
 }
 
 
-/* 푸터 */
+/* footer */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(45,45,47,1);
+    background-color: #2d2d2f;
     flex-shrink: 0; /* 축소 방지 */
 }
 footer p {
-    color: rgb(158 160 169);
+    color: #9ea0a9;
 }

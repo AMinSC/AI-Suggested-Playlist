@@ -25,14 +25,14 @@ const ytReady = new Promise(function (resolve) {
     };
 });
 
-function showAlert(event) {
-    event.preventDefault();
-    alert('준비 중입니다 :)');
-}
-
 // HTML 폼에서 submit 이벤트를 처리하는 코드
 $form.addEventListener('submit', async e => {
     e.preventDefault();
+    // 서비스 준비
+    function showAlert(event) {
+        event.preventDefault();
+        alert('준비 중입니다 :)');
+    }
     // 체크박스에서 선택된 값을 가져옵니다.
     const selectedYears = [];
     $radioButtons.forEach(radioButton => {
