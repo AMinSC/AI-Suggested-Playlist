@@ -9,6 +9,10 @@ import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
 // DOM 요소(질문 가이드)
 const $textField = document.querySelector(".place input[type='text']");
 const $radioButtons = document.querySelectorAll("input[type='radio']");
+// DOM 요소를 변수에 지정
+const $input = document.querySelector('input');
+const $form = document.querySelector('form');
+const $videoList = document.querySelector('#videoList');
 
 // 인스턴스 변수 지정
 const InstancePlayer = new videoPlayer();
@@ -25,12 +29,6 @@ function showAlert(event) {
     event.preventDefault();
     alert('준비 중입니다 :)');
 }
-
-
-// DOM 요소를 변수에 지정
-const $input = document.querySelector('input');
-const $form = document.querySelector('form');
-const $videoList = document.querySelector('#videoList');
 
 // HTML 폼에서 submit 이벤트를 처리하는 코드
 $form.addEventListener('submit', async e => {
