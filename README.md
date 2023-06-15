@@ -15,7 +15,7 @@
 ## 폴더 트리
 ```
 ├─asset
-├─components
+├─src
 │  ├─css
 │  └─js
 └─netlify
