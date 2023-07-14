@@ -47,6 +47,10 @@ class Gpt {
      * @param {string} answer - GPT의 답변을 받습니다.
      */
     answerRender(answer) {
+        // 기존 결과를 빈 값으로 처리한 후 갱신
+        if (document.querySelector('#answerPoint .answer')) {
+            document.querySelector('#answerPoint .answer').remove()
+        }
         const li = document.createElement("li");
         li.classList.add("answer");
         li.innerText = answer;
