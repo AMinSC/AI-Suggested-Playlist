@@ -48,13 +48,13 @@ $form.addEventListener('submit', async e => {
     $input.value = null;
     LoadingWithMask('../asset/Infinity-0.8s-200px.gif');
     // GPT 질문 정의 + 목적이 없을(빈 칸)경우 default값 주기
-    if (textField) {
+    if ($textField) {
         const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
     }
     else {
         const question = `${selectedYears}에 인기있던 "새벽에 듣기 좋은"에 맞는 감성적인 팝송 리스트 추천 해줘`;
     }
-
+    // const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
 
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector('#answerPoint'), question);
