@@ -7,7 +7,6 @@ import videoPlayer from './youtubeIFramePlayer.js';
 import { LoadingWithMask, closeLoadingWithMask } from './loading.js';
 
 // DOM 요소(질문 가이드)
-const $textField = document.querySelector(".place input[type='text']");
 const $radioButtons = document.querySelectorAll("input[type='radio']");
 // DOM 요소를 변수에 지정
 const $input = document.querySelector('input');
@@ -38,6 +37,9 @@ playerListLink.addEventListener('click', showAlert);
 // HTML 폼에서 submit 이벤트를 처리하는 코드
 $form.addEventListener('submit', async e => {
     e.preventDefault();
+    // DOM 요소(질문 가이드 : 목적 작성 후 값 가져오기)
+    const $textField = document.getElementById('target').value;
+
     // 체크박스에서 선택된 값을 가져옵니다.
     const selectedYears = [];
     $radioButtons.forEach(radioButton => {
@@ -48,13 +50,16 @@ $form.addEventListener('submit', async e => {
     $input.value = null;
     LoadingWithMask('../asset/Infinity-0.8s-200px.gif');
     // GPT 질문 정의 + 목적이 없을(빈 칸)경우 default값 주기
-    if ($textField) {
-        const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
-    }
-    else {
-        const question = `${selectedYears}에 인기있던 "새벽에 듣기 좋은"에 맞는 감성적인 팝송 리스트 추천 해줘`;
-    }
-    // const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
+    console.log($textField)
+    // if ($textField) {
+    //     const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
+    // }
+    // else {
+    //     const question = `${selectedYears}에 인기있던 "새벽에 듣기 좋은"에 맞는 감성적인 팝송 리스트 추천 해줘`;
+    // }
+    const question = `${selectedYears}에 인기있던 ${$textField}에 맞는 감성적인 팝송 리스트 추천 해줘`;
+    console.log(question)
+
 
     // GPT 인스턴스 변수 생성
     const InstanceGpt = new Gpt(document.querySelector('#answerPoint'), question);
