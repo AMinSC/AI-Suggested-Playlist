@@ -73,11 +73,8 @@ class Gpt {
                 redirect: "follow",
             });
                 const result = await response.json();
-                console.log(result)
                 this.answer = result.choices[0].message.content;
                 this.answerRender(this.answer);
-                console.log(this.answer)
-                console.log(this.answer.split('\n').slice(2, 12))
             } catch (err) {
                 console.log(err);
         }
