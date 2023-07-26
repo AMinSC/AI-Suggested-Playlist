@@ -27,7 +27,7 @@ exports.handler = async function(event, context) {
                 regionCode=${regionCode}&
                 videoDuration=${videoDuration}&
                 videoEmbeddable=${videoEmbeddable}`;
-
+    console.log(url)
     try {
         const { data } = await axios.get(url);
         return {
