@@ -17,16 +17,18 @@ exports.handler = async function(event, context) {
     const videoDuration = event.queryStringParameters.videoDuration;
     const videoEmbeddable = event.queryStringParameters.videoEmbeddable;
     
-    const url = `https://youtube.googleapis.com/youtube/v3/search?
-                q=${q}&
-                part=${part}&
-                key=${API_KEY}&
-                type=${type}&
-                maxResults=${maxResults}&
-                order=${order}&
-                regionCode=${regionCode}&
-                videoDuration=${videoDuration}&
-                videoEmbeddable=${videoEmbeddable}`;
+    // const url = `https://youtube.googleapis.com/youtube/v3/search?
+    //             q=${q}&
+    //             part=${part}&
+    //             key=${API_KEY}&
+    //             type=${type}&
+    //             maxResults=${maxResults}&
+    //             order=${order}&
+    //             regionCode=${regionCode}&
+    //             videoDuration=${videoDuration}&
+    //             videoEmbeddable=${videoEmbeddable}`;
+    const url = `https://youtube.googleapis.com/youtube/v3/search?q=${q}&part=${part}&key=${API_KEY}&type=${type}&maxResults=${maxResults}&order=${order}&regionCode=${regionCode}&videoDuration=${videoDuration}&videoEmbeddable=${videoEmbeddable}`;
+
     console.log(url)
     try {
         const { data } = await axios.get(url);
