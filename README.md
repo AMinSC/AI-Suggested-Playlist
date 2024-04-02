@@ -7,7 +7,7 @@
 - 1차 제공 서비스는 AI가 추천해주는 노래 리스트를 유튜브 플레이어만 제공
 
 ## 서비스 웹 페이지 주소 및 연관 Repository
-- [서비스이동](https://majestic-salamander-540c1f.netlify.app)
+- ~[서비스이동](https://majestic-salamander-540c1f.netlify.app)~ GPT API 사용 중지
 - YouTube API 할당량이 모두 소진되었을 경우, `매일 16:20 경 초기화`
 
 
